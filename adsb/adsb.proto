@@ -1,0 +1,108 @@
+syntax = "proto3";
+message Track {
+    float lat = 1;
+    float lon = 2;
+    int64 infoa = 3;
+    int64 infob = 4;
+}
+enum WTCEnum {
+    NotSpecified =           0;
+    Light =          1;
+    Medium =         2;
+    Heavy =          3;
+}
+enum EngineTypeEnum {
+    NoEngine =           0;
+    Piston =         1;
+    Turbo =          2;
+    Jet =            3;
+    Electric =       4;
+}
+enum EnginePlacementEnum {
+    Unknown =        0;
+    AftMounted =     1;
+    WingBuried =     2;
+    FuselageBuried = 3;
+    NoseMounted =    4;
+    WingMounted =    5;
+}
+enum SpeciesEnum {
+    NoSpecies =           0;
+    LandPlane =      1;
+    SeaPlane =       2;
+    Amphibian =      3;
+    Helicopter =     4;
+    Gyrocopter =     5;
+    Tiltwing =       6;
+    GroundVehicle =  7;
+    Tower =          8;
+}
+message Aircraft {
+    int64 Id = 1;                         // The unique identifier of the aircraft.
+    int64 TSecs = 2;                      // The number of seconds that the aircraft has been tracked for.
+    int64 Rcvr = 3;                       // The ID of the feed that last supplied information about the aircraft. Will be different to srcFeed if the source is a merged feed.
+    string Icao = 4;                      // The ICAO of the aircraft.
+    bool Bad = 5;                         // True if the ICAO is known to be invalid. This information comes from the local BaseStation.sqb database.
+    string Reg = 6;                       // The registration.
+    int64 Alt = 7;                        // The altitude in feet at standard pressure.
+    int64 GAlt = 8;                       // The altitude adjusted for local air pressure, should be roughly the height above mean sea level.
+    float InHg = 9;                       // The air pressure in inches of mercury that was used to calculate the AMSL altitude from the standard pressure altitude.
+    int64 AltT = 10;                      // The type of altitude transmitted by the aircraft: 0 = standard pressure altitude, 1 = indicated altitude (above mean sea level) to standard pressure altitude until told otherwise.
+    int64 TAlt = 11;                      // The target altitude, in feet, set on the autopilot / FMS etc.
+    string Call = 12;                     // The callsign.
+    bool CallSus = 13;                    // True if the callsign may not be correct.
+    float Lat = 14;                       // The aircraft's latitude over the ground.
+    float Long = 15;                      // The aircraft's longitude over the ground.
+    int64 PosTime = 16;                   // The time (at UTC in JavaScript ticks) that the position was last reported by the aircraft.
+    bool Mlat = 17;                       // True if the latitude and longitude appear to have been calculated by an MLAT server and were not transmitted by the aircraft.
+    bool PosStale = 18;                   // True if the last position update is older than the display timeout value - usually only seen on MLAT aircraft in merged feeds.
+    bool Tisb = 19;                       // True if the last message received for the aircraft was from a TIS-B source.
+    int64 Spd = 20;                       // The ground speed in knots.
+    int64 SpdTyp = 21;                    // The type of speed that Spd represents. Only used with raw feeds. 0 = missing = ground speed, 1 = ground speed reversing, 2 = indicated air speed, 3 = true air speed.
+    int64 Vsi = 22;                       // Vertical speed in feet per minute.
+    int64 VsiT = 23;                      // 0 = vertical speed is barometric, 1 = vertical speed is geometric. Default to barometric until told otherwise.
+    float Trak = 24;                      // Aircraft's track angle across the ground clockwise from 0° north.
+    bool TrkH = 25;                       // True if Trak is the aircraft's heading, false if it's the ground track. Default to ground track until told otherwise.
+    float TTrk = 26;                      // The track or heading currently set on the aircraft's autopilot or FMS.
+    string Type = 27;                     // The aircraft model's ICAO type code.
+    string Mdl = 28;                      // A description of the aircraft's model. Usually also includes the manufacturer's name.
+    string Man = 29;                      // The manufacturer's name.
+    string CNum = 30;                     // The aircraft's construction or serial number.
+    string From = 31;                     // The code and name of the departure airport.
+    string To = 32;                       // The code and name of the arrival airport.
+    repeated string Stops = 33;           // An array of strings, each being a stopover on the route.
+    string Op = 34;                       // The name of the aircraft's operator.
+    string OpIcao = 35;                   // The operator's ICAO code.
+    int64 Sqk = 36;                       // The squawk as a decimal number (e.g. a squawk of 7654 is passed as 7654, not 4012).
+    bool Help = 37;                       // True if the aircraft is transmitting an emergency squawk.
+    int64 Dst = 38;                       // The distance to the aircraft in kilometres.
+    int64 Brng = 39;                      // The bearing from the browser to the aircraft clockwise from 0° north.
+    WTCEnum WTC = 40;                     // The wake turbulence category of the aircraft - see enums.js for values.
+    string Engines = 41;                  // The number of engines the aircraft has. Usually '1', '2' etc. but can also be a string - see ICAO documentation.
+    EngineTypeEnum EngType = 42;          // The type of engine the aircraft uses - see enums.js for values.
+    EnginePlacementEnum EngMount = 43;    // The placement of engines on the aircraft - see enums.js for values.
+    SpeciesEnum Species = 44;             // The species of the aircraft (helicopter, jet etc.) - see enums.js for values.
+    bool Mil = 45;                        // True if the aircraft appears to be operated by the military.
+    string Cou = 46;                      // The country that the aircraft is registered to.
+    bool HasPic = 47;                     // True if the aircraft has a picture associated with it.
+    int64 PicX = 48;                      // The width of the picture in pixels.
+    int64 PicY = 49;                      // The height of the picture in pixels.
+    int64 FlightsCount = 50;              // The number of Flights records the aircraft has in the database.
+    int64 CMsgs = 51;                     // The count of messages received for the aircraft.
+    bool Gnd = 52;                        // True if the aircraft is on the ground.
+    string Tag = 53;                      // The user tag found for the aircraft in the BaseStation.sqb local database.
+    bool Interested = 54;                 // True if the aircraft is flagged as interesting in the BaseStation.sqb local database.
+    string TT = 55;                       // Trail type - empty for plain trails, 'a' for trails that include altitude, 's' for trails that include speed.
+    int64 Trt = 56;                       // Transponder type - 0=Unknown, 1=Mode-S, 2=ADS-B (unknown version), 3=ADS-B 1, 4=ADS-B 2.
+    string Year = 57;                     // The year that the aircraft was manufactured.
+    bool Sat = 58;                        // True if the aircraft has been seen on a SatCom ACARS feed (e.g. a JAERO feed).
+    repeated float Cos = 59;              // Short trails - see note 1.
+    repeated float Cot = 60;              // Full trails - see note 2.
+    bool ResetTrail = 61;                 // True if the entire trail has been sent and the JavaScript should discard any existing trail history it's built up for the aircraft.
+    bool HasSig = 62;                     // True if the aircraft has a signal level associated with it.
+    int64 Sig = 63;                       // The signal level for the last message received from the aircraft, as reported by the receiver. Not all receivers pass signal levels. The value's units are receiver-dependent.
+    int64 FSeen = 64;                     // EXTRA first time the damn thing was seen
+}
+message AcList {
+    repeated Aircraft aircraft = 1;
+}
