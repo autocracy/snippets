@@ -1,0 +1,252 @@
+[
+    {
+        "type": "record",
+        "name": "Aircraft",
+        "fields": [
+            {
+                "name": "Id",
+                "type": ["long", "null"]
+            },
+            {
+                "name": "TSecs",
+                "type": ["long", "null"]
+            },
+            {
+                "name": "Rcvr",
+                "type": ["long", "null"]
+            },
+            {
+                "name": "Icao",
+                "type": ["string", "null"]
+            },
+            {
+                "name": "Bad",
+                "type": ["boolean", "null"]
+            },
+            {
+                "name": "Reg",
+                "type": ["string", "null"]
+            },
+            {
+                "name": "Alt",
+                "type": ["long", "null"]
+            },
+            {
+                "name": "GAlt",
+                "type": ["long", "null"]
+            },
+            {
+                "name": "InHg",
+                "type": ["float", "null"]
+            },
+            {
+                "name": "AltT",
+                "type": ["long", "null"]
+            },
+            {
+                "name": "TAlt",
+                "type": ["long", "null"]
+            },
+            {
+                "name": "Call",
+                "type": ["string", "null"]
+            },
+            {
+                "name": "CallSus",
+                "type": ["boolean", "null"]
+            },
+            {
+                "name": "Lat",
+                "type": ["float", "null"]
+            },
+            {
+                "name": "Long",
+                "type": ["float", "null"]
+            },
+            {
+                "name": "PosTime",
+                "type": ["long", "null"]
+            },
+            {
+                "name": "Mlat",
+                "type": ["boolean", "null"]
+            },
+            {
+                "name": "PosStale",
+                "type": ["boolean", "null"]
+            },
+            {
+                "name": "Tisb",
+                "type": ["boolean", "null"]
+            },
+            {
+                "name": "Spd",
+                "type": ["long", "null"]
+            },
+            {
+                "name": "SpdTyp",
+                "type": ["long", "null"]
+            },
+            {
+                "name": "Vsi",
+                "type": ["long", "null"]
+            },
+            {
+                "name": "VsiT",
+                "type": ["long", "null"]
+            },
+            {
+                "name": "Trak",
+                "type": ["float", "null"]
+            },
+            {
+                "name": "TrkH",
+                "type": ["boolean", "null"]
+            },
+            {
+                "name": "TTrk",
+                "type": ["float", "null"]
+            },
+            {
+                "name": "Type",
+                "type": ["string", "null"]
+            },
+            {
+                "name": "Mdl",
+                "type": ["string", "null"]
+            },
+            {
+                "name": "Man",
+                "type": ["string", "null"]
+            },
+            {
+                "name": "CNum",
+                "type": ["string", "null"]
+            },
+            {
+                "name": "From",
+                "type": ["string", "null"]
+            },
+            {
+                "name": "To",
+                "type": ["string", "null"]
+            },
+            {
+                "name": "Stops",
+                "type": ["null", {
+                    "type": "array", "items": ["string", "null"]
+                }]
+            },
+            {
+                "name": "Op",
+                "type": ["string", "null"]
+            },
+            {
+                "name": "OpIcao",
+                "type": ["string", "null"]
+            },
+            {
+                "name": "Sqk",
+                "type": ["long", "null"]
+            },
+            {
+                "name": "Help",
+                "type": ["boolean", "null"]
+            },
+            {
+                "name": "Dst",
+                "type": ["long", "null"]
+            },
+            {
+                "name": "Brng",
+                "type": ["long", "null"]
+            },
+            {
+                "name": "Engines",
+                "type": ["string", "null"]
+            },
+            {
+                "name": "Mil",
+                "type": ["boolean", "null"]
+            },
+            {
+                "name": "Cou",
+                "type": ["string", "null"]
+            },
+            {
+                "name": "HasPic",
+                "type": ["boolean", "null"]
+            },
+            {
+                "name": "PicX",
+                "type": ["long", "null"]
+            },
+            {
+                "name": "PicY",
+                "type": ["long", "null"]
+            },
+            {
+                "name": "FlightsCount",
+                "type": ["long", "null"]
+            },
+            {
+                "name": "CMsgs",
+                "type": ["long", "null"]
+            },
+            {
+                "name": "Gnd",
+                "type": ["boolean", "null"]
+            },
+            {
+                "name": "Tag",
+                "type": ["string", "null"]
+            },
+            {
+                "name": "Interested",
+                "type": ["boolean", "null"]
+            },
+            {
+                "name": "TT",
+                "type": ["string", "null"]
+            },
+            {
+                "name": "Trt",
+                "type": ["long", "null"]
+            },
+            {
+                "name": "Year",
+                "type": ["string", "null"]
+            },
+            {
+                "name": "Sat",
+                "type": ["boolean", "null"]
+            },
+            {
+                "name": "Cos",
+                "type": ["null", {
+                    "type": "array", "items": ["float", "null"]
+                }]
+            },
+            {
+                "name": "Cot",
+                "type": ["float", "null"]
+            },
+            {
+                "name": "ResetTrail",
+                "type": ["boolean", "null"]
+            },
+            {
+                "name": "HasSig",
+                "type": ["boolean", "null"]
+            },
+            {
+                "name": "Sig",
+                "type": ["long", "null"]
+            },
+            {
+                "name": "FSeen",
+                "type": ["long", "null"]
+            }
+        ]
+    }
+]
